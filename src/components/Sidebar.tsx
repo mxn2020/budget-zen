@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, ArrowRightLeft, PiggyBank } from "lucide-react";
+import { Card } from "@geenius-ui/react-css";
 import ThemeToggle from "./ThemeToggle";
+
 export default function Sidebar() {
     const loc = useLocation();
     const links = [
@@ -22,10 +24,10 @@ export default function Sidebar() {
         </nav>
 
         <div style={{ padding: "var(--space-5)", borderTop: "1px solid var(--color-border)" }}>
-            <div className="card" style={{ padding: "var(--space-4)", background: "var(--color-accent-soft)", border: "1px solid var(--color-accent-primary)", textAlign: "center" }}>
+            <Card padding="md" className="sidebar-networth-card">
                 <div style={{ fontSize: "11px", fontWeight: 600, color: "var(--color-text-secondary)", marginBottom: 4 }}>Net Worth</div>
                 <div className="mono" style={{ fontSize: "20px", fontWeight: 700, color: "var(--color-accent-primary)" }}>$24,580</div>
-            </div>
+            </Card>
         </div>
 
         <div style={{ padding: "var(--space-4)", borderTop: "1px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>

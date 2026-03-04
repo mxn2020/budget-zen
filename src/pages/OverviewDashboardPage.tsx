@@ -1,4 +1,5 @@
-import { TrendingUp, TrendingDown, Wallet, ArrowUpRight, ArrowDownRight, DollarSign } from "lucide-react";
+import { TrendingUp, TrendingDown, Wallet, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Card } from "@geenius-ui/react-css";
 
 export default function OverviewDashboardPage() {
     const stats = [
@@ -23,7 +24,7 @@ export default function OverviewDashboardPage() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "var(--space-4)", marginBottom: "var(--space-6)" }}>
             {stats.map((s, i) => (
-                <div key={i} className="card" style={{ padding: "var(--space-5)" }}>
+                <Card key={i} padding="lg">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-3)" }}>
                         <span style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-text-secondary)" }}>{s.label}</span>
                         <s.icon size={20} style={{ color: s.color }} />
@@ -32,12 +33,12 @@ export default function OverviewDashboardPage() {
                     <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: "var(--space-2)", fontSize: "13px", fontWeight: 600, color: s.up ? "var(--color-success)" : "var(--color-danger)" }}>
                         {s.up ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />} {s.change} vs last month
                     </div>
-                </div>
+                </Card>
             ))}
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "var(--space-6)" }}>
-            <div className="card" style={{ padding: "var(--space-5)" }}>
+            <Card padding="lg">
                 <h2 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "var(--space-4)" }}>Spending Breakdown</h2>
                 <div style={{ height: 200, background: "var(--color-bg-secondary)", borderRadius: "var(--radius-md)", display: "flex", alignItems: "flex-end", padding: "var(--space-4)", gap: "var(--space-3)" }}>
                     {[35, 25, 12, 10, 8, 5, 5].map((pct, i) => (
@@ -47,9 +48,9 @@ export default function OverviewDashboardPage() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Card>
 
-            <div className="card" style={{ padding: "var(--space-5)" }}>
+            <Card padding="lg">
                 <h2 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "var(--space-4)" }}>Recent Transactions</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                     {recentTx.slice(0, 4).map((tx, i) => (
@@ -62,7 +63,7 @@ export default function OverviewDashboardPage() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Card>
         </div>
     </div>);
 }

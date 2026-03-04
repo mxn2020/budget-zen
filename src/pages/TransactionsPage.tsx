@@ -1,4 +1,5 @@
 import { Plus, Search, Filter, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Button, Card, Input, Badge } from "@geenius-ui/react-css";
 
 export default function TransactionsPage() {
     const transactions = [
@@ -15,18 +16,18 @@ export default function TransactionsPage() {
     return (<div style={{ padding: "var(--space-6)", maxWidth: 1000, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-6)" }}>
             <h1 style={{ fontSize: "var(--font-size-xl)", fontWeight: 700 }}>Transactions</h1>
-            <button className="btn btn-primary"><Plus size={16} /> Add Transaction</button>
+            <Button variant="primary" icon={<Plus size={16} />}>Add Transaction</Button>
         </div>
 
         <div style={{ display: "flex", gap: "var(--space-3)", marginBottom: "var(--space-4)" }}>
             <div style={{ flex: 1, position: "relative" }}>
-                <Search size={18} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", color: "var(--color-text-tertiary)" }} />
-                <input type="text" placeholder="Search transactions…" style={{ width: "100%", padding: "10px 14px 10px 44px", borderRadius: "var(--radius-md)", border: "1px solid var(--color-border)", background: "var(--color-bg-card)", color: "var(--color-text-primary)", fontFamily: "inherit", fontSize: "14px" }} />
+                <Search size={18} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", color: "var(--color-text-tertiary)", zIndex: 1 }} />
+                <Input type="text" placeholder="Search transactions…" style={{ width: "100%", paddingLeft: 44 }} />
             </div>
-            <button className="btn"><Filter size={16} /> Filter</button>
+            <Button variant="outline" icon={<Filter size={16} />}>Filter</Button>
         </div>
 
-        <div className="card" style={{ overflow: "hidden" }}>
+        <Card padding="none">
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                     <tr style={{ background: "var(--color-bg-secondary)", borderBottom: "2px solid var(--color-border)" }}>
@@ -45,13 +46,13 @@ export default function TransactionsPage() {
                                 {tx.type === "income" ? <ArrowUpRight size={14} style={{ color: "var(--income-color)" }} /> : <ArrowDownRight size={14} style={{ color: "var(--expense-color)" }} />}
                                 {tx.desc}
                             </td>
-                            <td style={{ padding: "14px 16px" }}><span style={{ fontSize: "12px", fontWeight: 600, padding: "3px 8px", borderRadius: 6, background: "var(--color-bg-secondary)", color: "var(--color-text-secondary)" }}>{tx.cat}</span></td>
+                            <td style={{ padding: "14px 16px" }}><Badge variant="secondary" size="sm">{tx.cat}</Badge></td>
                             <td style={{ padding: "14px 16px", fontSize: "13px", color: "var(--color-text-tertiary)", fontWeight: 500 }}>{tx.account}</td>
                             <td className="mono" style={{ padding: "14px 16px", textAlign: "right", fontWeight: 700, fontSize: "14px", color: tx.type === "income" ? "var(--income-color)" : "var(--expense-color)" }}>{tx.amount}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-        </div>
+        </Card>
     </div>);
 }
