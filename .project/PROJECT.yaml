@@ -1,0 +1,16 @@
+name: budget-zen
+project_scope: main
+project_type: standalone
+description: Minimalist personal finance and budgeting application
+tier: prototype
+lane: open-source
+priority: medium
+oss: true
+stack: ["typescript", "react", "vite", "convex"]
+repo: "https://github.com/mxn2020/budget-zen"
+deploy_url: null
+last_active: 2026-03-11
+tags: ["budget-zen", "convex", "react", "open-source", "ai-tools"]
+notes: null
+id: null
+category: oss-tool
